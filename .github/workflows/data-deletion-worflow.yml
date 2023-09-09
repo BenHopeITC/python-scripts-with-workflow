@@ -20,8 +20,9 @@ jobs:
       - name: Get data and print summaries
         run: python get-data.py 'data-files/data-20230909.csv'
   anonymize-data-dev:
-    environment: dev
     runs-on: ubuntu-latest
+    environment: dev
+    needs: [check-data-dev]
     steps:
       - name: Check out code
         uses: actions/checkout@v3
