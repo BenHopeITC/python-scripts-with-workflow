@@ -10,7 +10,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v3
 
-      - name: Setup Python3
+      - name: Setup python
         uses: actions/setup-python@v4
         with:
           python-version: 3.11
@@ -21,6 +21,12 @@ jobs:
       #     if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       #   ref: # branch
       #     my_other_branch
+
+      - name: Get data and print summaries
+        run: |
+          pwd &&
+          ls -lrt &&
+          cat get_data.py
 
       - name: Get data and print summaries
         run: python get_data.py
