@@ -26,7 +26,7 @@ jobs:
         run: |
           pwd &&
           ls -lrt &&
-          cat get_data.py
+          cat get-data.py
 
       - name: Get data and print summaries
-        run: python get_data.py
+        run: python get-data.py
