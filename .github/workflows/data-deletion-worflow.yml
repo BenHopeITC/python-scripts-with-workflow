@@ -2,6 +2,13 @@ name: Data Deletion Workflow
 
 on:
   workflow_dispatch:
+    inputs:
+      DATA:
+        description: 'Data File'
+        required: true
+        type: choice
+        options:
+          - data-20230909.csv
 
 jobs:
   check-data-dev:
@@ -18,7 +25,7 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Get data and print summaries
-        run: python get-data.py 'data-files/data-20230909.csv'
+        run: python get-data.py 'data-files/${{ inputs.DATA }}'
   anonymize-data-dev:
     runs-on: ubuntu-latest
     environment: dev
@@ -35,4 +42,4 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Anonymize data and print summaries
-        run: python get-data.py 'data-files/data-20230909.csv'
+        run: python get-data.py 'data-files/${{ inputs.DATA }}'
