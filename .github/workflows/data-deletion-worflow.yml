@@ -4,25 +4,34 @@ on:
   workflow_dispatch:
 
 jobs:
-  data-deletion:
+  check-data-dev:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
         uses: actions/checkout@v3
-
       - name: Setup python
         uses: actions/setup-python@v4
         with:
           python-version: 3.11
-
       - name: Install python dependencies
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-
-      # pip install flake8 pytest
-      #   ref: # branch
-      #     my_other_branch
-
       - name: Get data and print summaries
+        run: python get-data.py 'data-files/data-20230909.csv'
+  anonymize-data-dev:
+    environment: dev
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+      - name: Setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+      - name: Install python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Anonymize data and print summaries
         run: python get-data.py 'data-files/data-20230909.csv'
