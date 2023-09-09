@@ -7,9 +7,10 @@ jobs:
   data-deletion:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Check out code
+        uses: actions/checkout@v3
 
-      - name: setup python
+      - name: Setup Python3
         uses: actions/setup-python@v2
         with:
           python-version: 3.11
@@ -21,6 +22,6 @@ jobs:
           #   ref: # branch
           #     my_other_branch
 
-      - name: Get 'data_20230909.csv' data, print summaries
+      - name: Get data and print summaries
         run: |
-          python get_data.py 'data-files/data_20230909.csv'
+          python3 /get_data.py
