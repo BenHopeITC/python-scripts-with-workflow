@@ -13,5 +13,5 @@ jobs:
         run: ls -lrt
 
       - name: Get 'data_20230909.csv' data, print summaries
-        run: python ./get_data.py data-files/data_20230909.csv
+        run: python3 ./get_data.py data-files/data_20230909.csv
         shell: sh
