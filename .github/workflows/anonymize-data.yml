@@ -65,10 +65,17 @@ jobs:
           python-version: 3.11
       - name: Install python dependencies
         run: |
+          mkdir output &&
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Get data and print summaries
-        run: python get-data.py 'data-files/${{ inputs.DATA }}'
+        run: python get-data.py '${{ inputs.DATA }}'
+      - name: Cache summary data file
+        id: summary-data-file
+        uses: actions/cache@v3
+        with:
+          key: summary-data-file-${{ inputs.DATA }}
+          path: ./output
   anonymize-data-prod:
     runs-on: ubuntu-latest
     environment: prod
