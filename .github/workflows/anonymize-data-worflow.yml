@@ -7,8 +7,10 @@ on:
         description: 'Data File'
         required: true
         type: choice
+        default: 20230910.csv
         options:
-          - data-20230909.csv
+          - 20230910.csv
+          - 20230909.csv
 
 jobs:
   check-data-dev:
