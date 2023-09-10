@@ -9,6 +9,7 @@ on:
         type: choice
         default: 20230910.csv
         options:
+          - 20230911.csv
           - 20230910.csv
           - 20230909.csv
 
