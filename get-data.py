@@ -14,7 +14,12 @@ if __name__ == '__main__':
 
     with open(dataFile) as csvfile:
         csvReader = csv.reader(csvfile)
+        dataSummaryFile = open("output/summary-data-"+dataFile, "a")
+
         for id in csvReader:
             print("Data ID provided: " + id[0])
+            dataSummaryFile.write(id[0]+",extra1,extra2")
+        
+        dataSummaryFile.close()
 
     
