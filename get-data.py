@@ -12,9 +12,9 @@ if __name__ == '__main__':
 
     print("Data file provided: " + dataFile)
 
-    with open(dataFile) as csvfile:
+    with open("data-files/"+dataFile) as csvfile:
         csvReader = csv.reader(csvfile)
-        dataSummaryFile = open("output/summary-data-"+dataFile, "a")
+        dataSummaryFile = open("output/summary-data-"+dataFile, "w")
 
         for id in csvReader:
             print("Data ID provided: " + id[0])
