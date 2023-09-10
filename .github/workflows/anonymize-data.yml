@@ -29,12 +29,12 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Get data and print summaries
         run: python get-data.py '${{ inputs.DATA }}'
-      - name: Cache summary data file
-        id: summary-data-file
-        uses: actions/cache@v3
-        with:
-          key: summary-data-file-${{ inputs.DATA }}
-          path: ./output
+      # - name: Cache summary data file
+      #   id: summary-data-file
+      #   uses: actions/cache@v3
+      #   with:
+      #     key: summary-data-file-${{ inputs.DATA }}
+      #     path: ./output
   anonymize-data-dev:
     runs-on: ubuntu-latest
     environment: dev
@@ -70,12 +70,12 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Get data and print summaries
         run: python get-data.py '${{ inputs.DATA }}'
-      - name: Cache summary data file
-        id: summary-data-file
-        uses: actions/cache@v3
-        with:
-          key: summary-data-file-${{ inputs.DATA }}
-          path: ./output
+      # - name: Cache summary data file
+      #   id: summary-data-file
+      #   uses: actions/cache@v3
+      #   with:
+      #     key: summary-data-file-${{ inputs.DATA }}
+      #     path: ./output
   anonymize-data-prod:
     runs-on: ubuntu-latest
     environment: prod
